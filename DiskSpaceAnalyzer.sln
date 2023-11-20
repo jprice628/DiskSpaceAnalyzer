@@ -1,0 +1,31 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.7.34202.233
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DiskSpaceAnalyzer", "DiskSpaceAnalyzer\DiskSpaceAnalyzer.csproj", "{E53ABCA3-AECA-4A09-90AF-2D2C3A1B3B57}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ConsoleApp1", "ConsoleApp1\ConsoleApp1.csproj", "{EB592120-1806-495C-A65E-E05B16D15930}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{E53ABCA3-AECA-4A09-90AF-2D2C3A1B3B57}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E53ABCA3-AECA-4A09-90AF-2D2C3A1B3B57}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E53ABCA3-AECA-4A09-90AF-2D2C3A1B3B57}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E53ABCA3-AECA-4A09-90AF-2D2C3A1B3B57}.Release|Any CPU.Build.0 = Release|Any CPU
+		{EB592120-1806-495C-A65E-E05B16D15930}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{EB592120-1806-495C-A65E-E05B16D15930}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{EB592120-1806-495C-A65E-E05B16D15930}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{EB592120-1806-495C-A65E-E05B16D15930}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {06387F29-889D-4524-A26B-EF2B1ADDC26B}
+	EndGlobalSection
+EndGlobal
