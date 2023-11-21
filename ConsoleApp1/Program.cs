@@ -1,10 +1,1 @@
-﻿
-
-class FolderDiscovered 
-{
-    public DirectoryInfo folder;
-
-    public DirectoryInfo parent;
-}
-
-class Message { }
+﻿Console.WriteLine("Hello, world!");
