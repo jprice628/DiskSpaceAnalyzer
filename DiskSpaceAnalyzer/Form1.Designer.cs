@@ -31,7 +31,6 @@
             MenuStrip = new MenuStrip();
             StartScanMenuItem = new ToolStripMenuItem();
             StatusStrip = new StatusStrip();
-            ProgressBar = new ToolStripProgressBar();
             ProgressLabel = new ToolStripStatusLabel();
             FolderView = new TreeView();
             MenuStrip.SuspendLayout();
@@ -56,18 +55,12 @@
             // 
             // StatusStrip
             // 
-            StatusStrip.Items.AddRange(new ToolStripItem[] { ProgressBar, ProgressLabel });
+            StatusStrip.Items.AddRange(new ToolStripItem[] { ProgressLabel });
             StatusStrip.Location = new Point(0, 595);
             StatusStrip.Name = "StatusStrip";
             StatusStrip.Size = new Size(980, 22);
             StatusStrip.TabIndex = 2;
             StatusStrip.Text = "statusStrip1";
-            // 
-            // ProgressBar
-            // 
-            ProgressBar.Maximum = 1000;
-            ProgressBar.Name = "ProgressBar";
-            ProgressBar.Size = new Size(100, 16);
             // 
             // ProgressLabel
             // 
@@ -93,7 +86,7 @@
             Controls.Add(MenuStrip);
             MainMenuStrip = MenuStrip;
             Name = "Form1";
-            Text = "Form1";
+            Text = "DiskSpaceAnalyzer";
             MenuStrip.ResumeLayout(false);
             MenuStrip.PerformLayout();
             StatusStrip.ResumeLayout(false);
@@ -106,7 +99,6 @@
         private MenuStrip MenuStrip;
         private ToolStripMenuItem StartScanMenuItem;
         private StatusStrip StatusStrip;
-        private ToolStripProgressBar ProgressBar;
         private ToolStripStatusLabel ProgressLabel;
         private TreeView FolderView;
     }
