@@ -32,7 +32,7 @@
             StartScanMenuItem = new ToolStripMenuItem();
             StatusStrip = new StatusStrip();
             ProgressLabel = new ToolStripStatusLabel();
-            FolderView = new TreeView();
+            PathView = new TreeView();
             MenuStrip.SuspendLayout();
             StatusStrip.SuspendLayout();
             SuspendLayout();
@@ -68,20 +68,21 @@
             ProgressLabel.Size = new Size(170, 17);
             ProgressLabel.Text = "Click 'Start Scan' to get started.";
             // 
-            // FolderView
+            // PathView
             // 
-            FolderView.Dock = DockStyle.Fill;
-            FolderView.Location = new Point(0, 24);
-            FolderView.Name = "FolderView";
-            FolderView.Size = new Size(980, 571);
-            FolderView.TabIndex = 3;
+            PathView.Dock = DockStyle.Fill;
+            PathView.Font = new Font("Courier New", 9F, FontStyle.Regular, GraphicsUnit.Point);
+            PathView.Location = new Point(0, 24);
+            PathView.Name = "PathView";
+            PathView.Size = new Size(980, 571);
+            PathView.TabIndex = 3;
             // 
             // Form1
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(980, 617);
-            Controls.Add(FolderView);
+            Controls.Add(PathView);
             Controls.Add(StatusStrip);
             Controls.Add(MenuStrip);
             MainMenuStrip = MenuStrip;
@@ -100,6 +101,6 @@
         private ToolStripMenuItem StartScanMenuItem;
         private StatusStrip StatusStrip;
         private ToolStripStatusLabel ProgressLabel;
-        private TreeView FolderView;
+        private TreeView PathView;
     }
 }
