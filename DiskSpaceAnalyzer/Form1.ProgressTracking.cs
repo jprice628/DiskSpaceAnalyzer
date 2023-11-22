@@ -1,12 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace DiskSpaceAnalyzer
+﻿namespace DiskSpaceAnalyzer
 {
-    public partial class Form1
+    partial class Form1
     {
         // To avoid potential threading issues, these two variables will only
         // be accessed directly by the worker thread. When updating the UI, use

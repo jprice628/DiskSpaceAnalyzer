@@ -1,5 +1,4 @@
 ﻿using DiskSpaceAnalyzer;
-;
 
 var path = @"C:\Users\Jeremy\Desktop\DiskSpaceAnalyzer";
 var stream = new PathStream(path);
@@ -17,7 +16,7 @@ while(!stream.EndOfStream)
             Console.WriteLine($"File Added: {faEvent.File.Name}");
             break;
         default:
-            throw new ArgumentOutOfRangeException(nameof(@event));
+            throw new InvalidOperationException("Unrecognized event type.");
     }
 }
 

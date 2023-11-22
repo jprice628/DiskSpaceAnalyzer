@@ -57,7 +57,7 @@
             }
         }
 
-        bool AccessAllowed(DirectoryInfo directory)
+        static bool AccessAllowed(DirectoryInfo directory)
         {
             try
             {

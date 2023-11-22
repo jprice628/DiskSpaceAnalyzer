@@ -28,11 +28,16 @@
         /// </summary>
         private void InitializeComponent()
         {
+            components = new System.ComponentModel.Container();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1));
             MenuStrip = new MenuStrip();
             StartScanMenuItem = new ToolStripMenuItem();
             StatusStrip = new StatusStrip();
             ProgressLabel = new ToolStripStatusLabel();
-            PathView = new TreeView();
+            PathView = new ListView();
+            NameColumnHeader = new ColumnHeader();
+            SizeColumnHeader = new ColumnHeader();
+            PathViewImageList = new ImageList(components);
             MenuStrip.SuspendLayout();
             StatusStrip.SuspendLayout();
             SuspendLayout();
@@ -70,12 +75,38 @@
             // 
             // PathView
             // 
+            PathView.Columns.AddRange(new ColumnHeader[] { NameColumnHeader, SizeColumnHeader });
             PathView.Dock = DockStyle.Fill;
             PathView.Font = new Font("Courier New", 9F, FontStyle.Regular, GraphicsUnit.Point);
+            PathView.FullRowSelect = true;
+            PathView.HeaderStyle = ColumnHeaderStyle.Nonclickable;
             PathView.Location = new Point(0, 24);
             PathView.Name = "PathView";
             PathView.Size = new Size(980, 571);
+            PathView.SmallImageList = PathViewImageList;
             PathView.TabIndex = 3;
+            PathView.UseCompatibleStateImageBehavior = false;
+            PathView.View = View.Details;
+            PathView.DoubleClick += PathView_DoubleClick;
+            // 
+            // NameColumnHeader
+            // 
+            NameColumnHeader.Text = "Name";
+            NameColumnHeader.Width = 512;
+            // 
+            // SizeColumnHeader
+            // 
+            SizeColumnHeader.Text = "Size";
+            SizeColumnHeader.TextAlign = HorizontalAlignment.Right;
+            SizeColumnHeader.Width = 128;
+            // 
+            // PathViewImageList
+            // 
+            PathViewImageList.ColorDepth = ColorDepth.Depth8Bit;
+            PathViewImageList.ImageStream = (ImageListStreamer)resources.GetObject("PathViewImageList.ImageStream");
+            PathViewImageList.TransparentColor = Color.Transparent;
+            PathViewImageList.Images.SetKeyName(0, "folder.png");
+            PathViewImageList.Images.SetKeyName(1, "file.png");
             // 
             // Form1
             // 
@@ -101,6 +132,9 @@
         private ToolStripMenuItem StartScanMenuItem;
         private StatusStrip StatusStrip;
         private ToolStripStatusLabel ProgressLabel;
-        private TreeView PathView;
+        private ListView PathView;
+        private ColumnHeader NameColumnHeader;
+        private ColumnHeader SizeColumnHeader;
+        private ImageList PathViewImageList;
     }
 }
