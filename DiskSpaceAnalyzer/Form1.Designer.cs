@@ -123,6 +123,7 @@
             Controls.Add(MenuStrip);
             MainMenuStrip = MenuStrip;
             Name = "Form1";
+            StartPosition = FormStartPosition.CenterScreen;
             Text = "DiskSpaceAnalyzer";
             MenuStrip.ResumeLayout(false);
             MenuStrip.PerformLayout();
