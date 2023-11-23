@@ -64,6 +64,7 @@
             PathView.Columns.AddRange(new ColumnHeader[] { NameColumnHeader, SizeColumnHeader });
             PathView.Font = new Font("Courier New", 9F, FontStyle.Regular, GraphicsUnit.Point);
             PathView.FullRowSelect = true;
+            PathView.GridLines = true;
             PathView.HeaderStyle = ColumnHeaderStyle.Nonclickable;
             PathView.Location = new Point(12, 40);
             PathView.Name = "PathView";
@@ -72,7 +73,7 @@
             PathView.TabIndex = 3;
             PathView.UseCompatibleStateImageBehavior = false;
             PathView.View = View.Details;
-            PathView.DoubleClick += PathView_DoubleClick;
+            PathView.Click += PathView_Click;
             // 
             // NameColumnHeader
             // 

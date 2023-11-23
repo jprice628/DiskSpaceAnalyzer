@@ -8,7 +8,7 @@
             { 'F', 1 }
         };
 
-        void PathView_DoubleClick(object sender, EventArgs e)
+        void PathView_Click(object sender, EventArgs e)
         {
             if (PathView.SelectedItems.Count == 0)
             {
@@ -20,7 +20,7 @@
                 return;
             }
 
-            var selectedNode = (PathNode)PathView.SelectedItems[0].Tag;            
+            var selectedNode = (PathNode)PathView.SelectedItems[0].Tag;
 
             if (selectedNode.NodeType == 'F')
             {
@@ -54,6 +54,10 @@
                 var child = NewListViewItem(item.Name, item.Size, item);
                 PathView.Items.Add(child);
             }
+
+            // Resize the columns.
+            PathView.Columns[0].Width = -1;
+            PathView.Columns[1].Width = -1;
         }
 
         static ListViewItem NewListViewItem(string name, long size, PathNode node)
