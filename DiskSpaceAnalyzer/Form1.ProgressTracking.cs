@@ -25,7 +25,7 @@
             // Since the work is done, it should be safe to access the
             // directoriesAdded and filesAdded variables here.
 
-            ProgressLabel.Text = $"Complete: {directoriesAdded} directories / {filesAdded} files";
+            ProgressLabel.Text = $"Complete: {directoriesAdded:N0} directories / {filesAdded:N0} files";
         }
 
         void IncrementDirectoriesAdded(long byValue)
@@ -69,7 +69,7 @@
 
             var info = ((long directoriesAdded, long filesAdded))state;
 
-            ProgressLabel.Text = $"Working: {info.directoriesAdded} directories / {info.filesAdded} files";
+            ProgressLabel.Text = $"Working: {info.directoriesAdded:N0} directories / {info.filesAdded:N0} files";
         }
     }
 }

@@ -3,8 +3,7 @@
     partial class Form1
     {
         // HACK: The user should supply the path.
-        // const string RootPath = @"C:\Users\Jeremy\Desktop\DiskSpaceAnalyzer";
-        const string RootPath = @"C:\Users\Jeremy\Desktop";
+        const string RootPath = @"C:\Users\Jeremy\Desktop\DiskSpaceAnalyzer";
 
         readonly SynchronizationContext syncContext;
         readonly Dictionary<string, PathNode> pathIndex;
