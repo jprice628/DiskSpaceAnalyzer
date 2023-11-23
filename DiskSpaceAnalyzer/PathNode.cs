@@ -14,13 +14,15 @@ namespace DiskSpaceAnalyzer
 
         public string Name { get; private init; }
 
+        public string FullName { get; private init; }
+
         public long Size { get; set; }
 
         public PathNode? Parent { get; private init; }
 
         public ICollection<PathNode> Children { get; private init; }
 
-        public PathNode(char nodeType, string name, PathNode? parent, long initialSize = 0)
+        public PathNode(char nodeType, string name, string fullName, PathNode? parent, long initialSize = 0)
         {
             if (!AllowedTypes.Contains(nodeType))
             {
@@ -32,6 +34,11 @@ namespace DiskSpaceAnalyzer
                 throw new ArgumentNullException(nameof(name));
             }
 
+            if (string.IsNullOrWhiteSpace(fullName))
+            {
+                throw new ArgumentNullException(nameof(fullName));
+            }
+
             if (initialSize < 0)
             {
                 throw new ArgumentOutOfRangeException(nameof(initialSize));
@@ -39,6 +46,7 @@ namespace DiskSpaceAnalyzer
 
             NodeType = nodeType;
             Name = name;
+            FullName = fullName;
             Size = initialSize;
             Parent = parent;
             Children = new List<PathNode>();

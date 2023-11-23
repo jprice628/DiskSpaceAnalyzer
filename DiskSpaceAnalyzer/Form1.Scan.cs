@@ -6,8 +6,8 @@
         readonly Dictionary<string, PathNode> pathIndex;
         
         string rootPath = string.Empty;
-        
-        async void StartScanMenuItem_Click(object sender, EventArgs e)
+
+        async void StartScanButton_Click(object sender, EventArgs e)
         {
             PathSelectDialog.InitialDirectory = string.IsNullOrWhiteSpace(rootPath) ?
                 Environment.GetFolderPath(Environment.SpecialFolder.Desktop) :
@@ -21,14 +21,15 @@
 
             rootPath = PathSelectDialog.SelectedPath.ToLowerInvariant();
 
-            StartScanMenuItem.Enabled = false;
+            StartScanButton.Enabled = false;
+            AddressBar.Text = string.Empty;
             PathView.Items.Clear();
             pathIndex.Clear();
             BeginTrackingProgress();
 
             await Task.Run(PerformScan).ConfigureAwait(true);
 
-            StartScanMenuItem.Enabled = true;
+            StartScanButton.Enabled = true;
             EndTrackingProgress();
             Navigate(pathIndex[rootPath]);
         }
@@ -58,7 +59,7 @@
         void OnDirectoryAdded(DirectoryInfo directory)
         {
             var parent = GetParentNode(directory.Parent);
-            var node = new PathNode('D', directory.Name, parent);            
+            var node = new PathNode('D', directory.Name, directory.FullName, parent);            
             parent?.Children.Add(node);
             pathIndex.Add(directory.FullName.ToLowerInvariant(), node);
             IncrementDirectoriesAdded(1);
@@ -68,7 +69,7 @@
         {
             var parent = GetParentNode(file.Directory) ?? 
                 throw new InvalidOperationException("Files must have a parent node.");
-            var node = new PathNode('F', file.Name, parent, file.Length);            
+            var node = new PathNode('F', file.Name, file.FullName, parent, file.Length);            
             parent.Children.Add(node);
 
             while (node.Parent is not null)

@@ -34,6 +34,9 @@
         {
             PathView.Items.Clear();
 
+            // Show full name.
+            AddressBar.Text = node.FullName;
+
             // Show the self node.
             var self = NewListViewItem(".", node.Size, node);
             PathView.Items.Add(self);

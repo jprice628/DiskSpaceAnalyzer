@@ -30,8 +30,6 @@
         {
             components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1));
-            MenuStrip = new MenuStrip();
-            StartScanMenuItem = new ToolStripMenuItem();
             StatusStrip = new StatusStrip();
             ProgressLabel = new ToolStripStatusLabel();
             PathView = new ListView();
@@ -39,32 +37,17 @@
             SizeColumnHeader = new ColumnHeader();
             PathViewImageList = new ImageList(components);
             PathSelectDialog = new FolderBrowserDialog();
-            MenuStrip.SuspendLayout();
+            AddressBar = new TextBox();
+            StartScanButton = new Button();
             StatusStrip.SuspendLayout();
             SuspendLayout();
-            // 
-            // MenuStrip
-            // 
-            MenuStrip.Items.AddRange(new ToolStripItem[] { StartScanMenuItem });
-            MenuStrip.Location = new Point(0, 0);
-            MenuStrip.Name = "MenuStrip";
-            MenuStrip.Size = new Size(980, 24);
-            MenuStrip.TabIndex = 1;
-            MenuStrip.Text = "menuStrip1";
-            // 
-            // StartScanMenuItem
-            // 
-            StartScanMenuItem.Name = "StartScanMenuItem";
-            StartScanMenuItem.Size = new Size(71, 20);
-            StartScanMenuItem.Text = "Start Scan";
-            StartScanMenuItem.Click += StartScanMenuItem_Click;
             // 
             // StatusStrip
             // 
             StatusStrip.Items.AddRange(new ToolStripItem[] { ProgressLabel });
-            StatusStrip.Location = new Point(0, 595);
+            StatusStrip.Location = new Point(0, 603);
             StatusStrip.Name = "StatusStrip";
-            StatusStrip.Size = new Size(980, 22);
+            StatusStrip.Size = new Size(901, 22);
             StatusStrip.TabIndex = 2;
             StatusStrip.Text = "statusStrip1";
             // 
@@ -76,14 +59,15 @@
             // 
             // PathView
             // 
+            PathView.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
+            PathView.BorderStyle = BorderStyle.FixedSingle;
             PathView.Columns.AddRange(new ColumnHeader[] { NameColumnHeader, SizeColumnHeader });
-            PathView.Dock = DockStyle.Fill;
             PathView.Font = new Font("Courier New", 9F, FontStyle.Regular, GraphicsUnit.Point);
             PathView.FullRowSelect = true;
             PathView.HeaderStyle = ColumnHeaderStyle.Nonclickable;
-            PathView.Location = new Point(0, 24);
+            PathView.Location = new Point(12, 40);
             PathView.Name = "PathView";
-            PathView.Size = new Size(980, 571);
+            PathView.Size = new Size(877, 560);
             PathView.SmallImageList = PathViewImageList;
             PathView.TabIndex = 3;
             PathView.UseCompatibleStateImageBehavior = false;
@@ -113,20 +97,42 @@
             // 
             PathSelectDialog.ShowNewFolderButton = false;
             // 
+            // AddressBar
+            // 
+            AddressBar.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
+            AddressBar.BackColor = SystemColors.Window;
+            AddressBar.BorderStyle = BorderStyle.FixedSingle;
+            AddressBar.CausesValidation = false;
+            AddressBar.Font = new Font("Courier New", 9F, FontStyle.Regular, GraphicsUnit.Point);
+            AddressBar.Location = new Point(93, 12);
+            AddressBar.Name = "AddressBar";
+            AddressBar.ReadOnly = true;
+            AddressBar.Size = new Size(796, 21);
+            AddressBar.TabIndex = 4;
+            // 
+            // StartScanButton
+            // 
+            StartScanButton.Location = new Point(12, 11);
+            StartScanButton.Name = "StartScanButton";
+            StartScanButton.Size = new Size(75, 23);
+            StartScanButton.TabIndex = 5;
+            StartScanButton.Text = "Start Scan";
+            StartScanButton.UseVisualStyleBackColor = true;
+            StartScanButton.Click += StartScanButton_Click;
+            // 
             // Form1
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(980, 617);
+            ClientSize = new Size(901, 625);
+            Controls.Add(StartScanButton);
+            Controls.Add(AddressBar);
             Controls.Add(PathView);
             Controls.Add(StatusStrip);
-            Controls.Add(MenuStrip);
-            MainMenuStrip = MenuStrip;
+            MinimumSize = new Size(680, 369);
             Name = "Form1";
             StartPosition = FormStartPosition.CenterScreen;
             Text = "DiskSpaceAnalyzer";
-            MenuStrip.ResumeLayout(false);
-            MenuStrip.PerformLayout();
             StatusStrip.ResumeLayout(false);
             StatusStrip.PerformLayout();
             ResumeLayout(false);
@@ -134,8 +140,6 @@
         }
 
         #endregion
-        private MenuStrip MenuStrip;
-        private ToolStripMenuItem StartScanMenuItem;
         private StatusStrip StatusStrip;
         private ToolStripStatusLabel ProgressLabel;
         private ListView PathView;
@@ -143,5 +147,7 @@
         private ColumnHeader SizeColumnHeader;
         private ImageList PathViewImageList;
         private FolderBrowserDialog PathSelectDialog;
+        private TextBox AddressBar;
+        private Button StartScanButton;
     }
 }
