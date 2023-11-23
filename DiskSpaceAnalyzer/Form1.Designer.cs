@@ -38,6 +38,7 @@
             NameColumnHeader = new ColumnHeader();
             SizeColumnHeader = new ColumnHeader();
             PathViewImageList = new ImageList(components);
+            PathSelectDialog = new FolderBrowserDialog();
             MenuStrip.SuspendLayout();
             StatusStrip.SuspendLayout();
             SuspendLayout();
@@ -108,6 +109,10 @@
             PathViewImageList.Images.SetKeyName(0, "folder.png");
             PathViewImageList.Images.SetKeyName(1, "file.png");
             // 
+            // PathSelectDialog
+            // 
+            PathSelectDialog.ShowNewFolderButton = false;
+            // 
             // Form1
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
@@ -136,5 +141,6 @@
         private ColumnHeader NameColumnHeader;
         private ColumnHeader SizeColumnHeader;
         private ImageList PathViewImageList;
+        private FolderBrowserDialog PathSelectDialog;
     }
 }

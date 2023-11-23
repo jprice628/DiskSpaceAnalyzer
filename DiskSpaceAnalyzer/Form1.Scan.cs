@@ -2,14 +2,25 @@
 {
     partial class Form1
     {
-        // HACK: The user should supply the path.
-        const string RootPath = @"C:\Users\Jeremy\Desktop\DiskSpaceAnalyzer";
-
         readonly SynchronizationContext syncContext;
         readonly Dictionary<string, PathNode> pathIndex;
-
+        
+        string rootPath = string.Empty;
+        
         async void StartScanMenuItem_Click(object sender, EventArgs e)
         {
+            PathSelectDialog.InitialDirectory = string.IsNullOrWhiteSpace(rootPath) ?
+                Environment.GetFolderPath(Environment.SpecialFolder.Desktop) :
+                rootPath;
+            var pathSelectResult = PathSelectDialog.ShowDialog(this);
+
+            if (pathSelectResult != DialogResult.OK)
+            {
+                return;
+            }
+
+            rootPath = PathSelectDialog.SelectedPath.ToLowerInvariant();
+
             StartScanMenuItem.Enabled = false;
             PathView.Items.Clear();
             pathIndex.Clear();
@@ -19,12 +30,12 @@
 
             StartScanMenuItem.Enabled = true;
             EndTrackingProgress();
-            Navigate(pathIndex[RootPath.ToLowerInvariant()]);
+            Navigate(pathIndex[rootPath]);
         }
 
         void PerformScan()
         {
-            var stream = new PathStream(RootPath);
+            var stream = new PathStream(rootPath);
 
             while (!stream.EndOfStream)
             {
